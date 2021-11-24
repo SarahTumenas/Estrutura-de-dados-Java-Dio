@@ -27,13 +27,15 @@ public class Fila {
 
                 if(primeiroNo.getRefNo() != null){
 
-                    primeiroNo =primeiroNo.getRefNo();
+                    primeiroNo = primeiroNo.getRefNo();
 
                 } else{
 
                     break;
                 }
             }
+
+            return primeiroNo;
         }
         return null;
     }
@@ -51,7 +53,7 @@ public class Fila {
                 if(primeiroNo.getRefNo() != null){
 
                     noAuxiliar = primeiroNo;
-                    primeiroNo =primeiroNo.getRefNo();
+                    primeiroNo = primeiroNo.getRefNo();
 
                 } else{
 
