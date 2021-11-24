@@ -1,8 +1,8 @@
 package FilaBasic;
 
-public class Fila {
+public class Fila<T> {
 
-    private No refNoEntradaFila;
+    private No <T> refNoEntradaFila;
 
 
     public Fila() {
@@ -10,14 +10,27 @@ public class Fila {
     }
 
 
-    public void enqueue(No novoNo){
+    /*public void enqueue(No novoNo){
 
         novoNo.setRefNo(refNoEntradaFila);
         refNoEntradaFila = novoNo;
+    }*/
+
+    // refatoração para embutir nó
+
+
+    public void enqueue (T object){
+
+        No novoNo = new No(object);
+        novoNo.setRefNo(refNoEntradaFila);
+        refNoEntradaFila = novoNo;
+
+
     }
 
+    //public No first(){
 
-    public No first(){
+    public T first (){
 
         if(!this.isEmpty()){
 
@@ -35,14 +48,14 @@ public class Fila {
                 }
             }
 
-            return primeiroNo;
+            return (T) primeiroNo.getObject();
         }
         return null;
     }
 
 
-    public No dequeue(){
-
+    //public No dequeue(){
+    public T dequeue (){
         if(!this.isEmpty()){
 
             No primeiroNo = refNoEntradaFila;
@@ -61,7 +74,7 @@ public class Fila {
                     break;
                 }
             }
-            return primeiroNo;
+            return (T)primeiroNo.getObject();
         }
         return null;
     }
